@@ -1,7 +1,5 @@
 # ----- JUEGO PIEDRA PAPEL Y TIJERA--------
 
-# AUTHOR : MARELY
-
 # REGLAS DEL JUEGO
 
 # Jugadores: El juego se juega entre dos personas1.
