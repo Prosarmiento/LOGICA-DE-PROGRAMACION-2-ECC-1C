@@ -1,0 +1,98 @@
+import random
+
+# Constantes
+PIEDRA = 1
+PAPEL = 2
+TIJERA = 3
+SALIR = 0
+
+# Tupla de opciones del juego
+OPCIONES_JUEGO = ("", "piedra", "papel", "tijera")
+
+# Tuplas que representan combinaciones ganadoras
+REGLAS_VICTORIA = (
+    (PIEDRA, TIJERA),  # Piedra rompe tijera
+    (TIJERA, PAPEL),   # Tijera corta papel
+    (PAPEL, PIEDRA),   # Papel envuelve piedra
+)
+
+def mostrar_menu():
+    print("\n#############################################")
+    print("             Piedra, papel o tijera")
+    print(f"              [{PIEDRA}] piedra")
+    print(f"              [{PAPEL}] papel")
+    print(f"              [{TIJERA}] tijera")
+    print(f"              [{SALIR}] salir")
+    print("#############################################")
+
+def obtener_opcion_usuario():
+    while True:
+        try:
+            opcion = int(input("Ingrese el número correspondiente para jugar: "))
+            if opcion in [PIEDRA, PAPEL, TIJERA, SALIR]:
+                return opcion
+            else:
+                print("Número inválido. Por favor, intente de nuevo.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número.")
+
+def obtener_opcion_computador():
+    return random.choice([PIEDRA, PAPEL, TIJERA])
+
+def determinar_ganador(usuario, computador):
+    if usuario == computador:
+        return "empate"
+    elif (usuario, computador) in REGLAS_VICTORIA:
+        return "victoria"
+    else:
+        return "derrota"
+
+def mostrar_resultado(usuario, computador, resultado):
+    print(f"\nHas elegido: {OPCIONES_JUEGO[usuario]}")
+    print(f"Computador eligió: {OPCIONES_JUEGO[computador]}")
+    if resultado == "victoria":
+        print("¡Ganaste! 😊🙌")
+    elif resultado == "derrota":
+        print("Perdiste 😢 ¡Inténtalo de nuevo!")
+    else:
+        print("Es un empate! 😏")
+
+def jugar():
+    mostrar_menu()
+
+    # Contadores de resultados
+    victorias = 0
+    derrotas = 0
+    empates = 0
+
+    while True:
+        opcion_usuario = obtener_opcion_usuario()
+        if opcion_usuario == SALIR:
+            print("\nGracias por jugar. ¡Hasta la próxima! 👋")
+            break
+
+        opcion_computador = obtener_opcion_computador()
+        resultado = determinar_ganador(opcion_usuario, opcion_computador)
+        mostrar_resultado(opcion_usuario, opcion_computador, resultado)
+
+        # Actualizar contadores
+        if resultado == "victoria":
+            victorias += 1
+        elif resultado == "derrota":
+            derrotas += 1
+        else:
+            empates += 1
+
+        continuar = input("\n¿Quieres seguir jugando? (s/n): ")
+        if continuar.lower() != 's':
+            break
+
+    # Mostrar resumen final
+    print("\n📊 Resumen de la partida:")
+    print(f"Victorias: {victorias}")
+    print(f"Derrotas: {derrotas}")
+    print(f"Empates: {empates}")
+    print("\n¡Gracias por jugar! 🎮")
+
+# Ejecutar el juego
+jugar()
