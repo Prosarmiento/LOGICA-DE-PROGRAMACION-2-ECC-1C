@@ -17,13 +17,13 @@ El usuario elige entre piedra, papel o tijera, y el computador selecciona aleato
 ## 📋 Menú de opciones
 
 
-#############################################
+
              Piedra, papel o tijera
               [1] piedra
               [2] papel
               [3] tijera
               [0] salir
-#############################################
+
 🧠 Lógica del juego
 El juego está estructurado en funciones modulares:
 
