@@ -1,4 +1,5 @@
 # 🪨 Piedra, Papel o Tijera — Juego en Python
+Domingo, 24 de agosto de 2025
 
 Este proyecto es una versión mejorada del clásico juego **Piedra, Papel o Tijera**, desarrollado en Python como parte del curso *Lógica de Programación*. El juego permite al usuario competir contra el computador, registrar resultados y visualizar un resumen final.
 
