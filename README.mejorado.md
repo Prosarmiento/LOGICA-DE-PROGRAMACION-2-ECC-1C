@@ -22,7 +22,7 @@ El usuario elige entre piedra, papel o tijera, y el computador selecciona aleato
               [2] papel
               [3] tijera
               [0] salir
-#############################################
+
 🧠 Lógica del juego
 El juego está estructurado en funciones modulares:
 
